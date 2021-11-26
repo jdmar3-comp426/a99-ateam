@@ -1,6 +1,6 @@
 # Planning for A Team
 
-Team Members: Sam Anthony, Arja Kaushal, Sarah McCormick, Michael Alcorn
+Team Members: Sam Anthony, Arja Kaushal, Sarah McCormick, Michael Alcorn, Kang Du
 
 Inital Roles:
 - Back End: Sam Anthony
