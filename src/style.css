@@ -12,8 +12,9 @@
     align-content: center;
     width: 618px;
     height: 618px;
+    margin: 0px;
+    background-color: rgb(187, 225, 255);
 }
-
 .blue_devil {
     background-image: url(../images/blue_devil.png);
     background-size: cover;
