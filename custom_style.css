@@ -12,6 +12,11 @@ hr{
     background-color: #e6e6e4;
 }
 
+.content{
+    margin: auto;
+    max-width: 800px;
+}
+
 .title{
     font-size: 2.8em !important;
 }

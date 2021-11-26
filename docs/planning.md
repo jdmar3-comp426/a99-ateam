@@ -1,6 +1,6 @@
 # Planning for A Team
 
-Team Members: Sam Anthony, Arja Kaushal, Sarah McCormick, Michael Alcorn
+Team Members: Sam Anthony, Arja Kaushal, Sarah McCormick, Michael Alcorn, Kang Du
 
 Inital Roles:
 - Back End: Sam Anthony
@@ -23,6 +23,7 @@ Inital Roles:
     - change the font
     - add bulma framework
 - form for creating/updating users
+- need to display high scorers from database
 
 ## BACK_END: Sam, Kang
 - need to make database with usernames, passwords, email, etc
