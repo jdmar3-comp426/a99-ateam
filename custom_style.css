@@ -11,7 +11,10 @@ html, body{
 hr{
     background-color: #e6e6e4;
 }
-
+h1 {
+    text-align: center;
+    color: rgb(135, 180, 223);
+  }
 .content{
     margin: auto;
     max-width: 800px;

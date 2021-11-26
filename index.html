@@ -34,16 +34,15 @@
         </div>
 
         <!-- Michael Section -->
-        <div class = "box">
+    <div class = "box margin mt-6 mx-4">
         <div class="content has-text-info-dark is-size-4 is-family-code">
             <h1>Login</h1>
             <form id="loginForm">
                 <label for="user">Username:</label>
-                <input id="user" name="user" value="">
+                <input class="input is-small" type="user" id="user" name="user" value="">
                 <label for="pass">Password:</label> 
-                <input type="password" id="pass" name="pass" value="">
-
-                <input type="submit" value="Login" id="login">
+                <input class= "input is-small" type="password" id="pass" name="pass" value="">
+                <input class="button is-info" type="submit" value="Login" id="login">
             </form>
             
             <p id="myData"></p>
@@ -52,32 +51,30 @@
             <form id="signup">
                 <div class ="field">
                 <label for="user">Username:</label> 
-                <input id="user" name="user" value="" placeholder="DookSux23">
+                <input class="input is-primary is-small" id="user" name="user" value="" placeholder="DookSux23">
                 </div>
 
                 <div class ="field">
                 <label for="email">Email Address:</label>
-                </div>
-
-                <div class ="field">
-                <input id="email" name="email" placeholder="someaddress@live.unc.edu">
+                <input class="input is-primary is-small" id="email" name="email" placeholder="someaddress@live.unc.edu">
                 </div>
 
                 <div class = "field">
                 <label for="pass">Password:</label> 
-                <input type="password" id="pass" name="pass" value="">
+                <input class="input is-primary is-small" type="password" id="pass" name="pass" value="">
                 </div>
                 <div class = "field">
                 <label for="name">Name:</label> 
-                <input id="name" name="name" placeholder="Rameses">
+                <input class="input is-primary is-small" id="name" name="name" placeholder="Rameses">
                 </div>
                 <div class = "field">
                 <label for="year">UNC Year:</label> 
-                <input id="year" name="year" placeholder="2023">
+                <input class="input is-primary is-small" id="year" name="year" placeholder="2023">
                 </div>
-                <input type="submit" value="Submit">
+                <input class="button is-info" type="submit" value="Submit">
             </form>
         </div>
+    </div>
             <br>
 
             <h1>Users</h1>
@@ -116,7 +113,7 @@
 
             <br>
 
-        </div>
+        
     </body>
     <script src="src/app.js" charset="utf-8"></script>
 </div>
