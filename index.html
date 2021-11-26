@@ -20,8 +20,8 @@
             <h2 style = "color:rgb(56, 173, 124);">Seconds left:</h2>
             <h2 id="seconds-left">60</h2>
         </div>
-
-        <div class="grid has-background-primary">
+        <div class="ml-6">
+        <div class="grid ml-6">
             <div class="square blue_devil" id="1"></div>
             <div class="square" id="2"></div>
             <div class="square" id="3"></div>
@@ -32,7 +32,7 @@
             <div class="square" id="8"></div>
             <div class="square" id="9"></div>
         </div>
-
+    </div>
         <!-- Michael Section -->
     <div class = "box margin mt-6 mx-4">
         <div class="content has-text-info-dark is-size-4 is-family-code">
@@ -75,24 +75,29 @@
             </form>
         </div>
     </div>
-            <br>
 
+    <!-- Michael Section part 2-->
+    <div class="content has-text-info-dark is-size-4 is-family-code">
+            <br>
+        <div class="box has-text-centered">
             <h1>Users</h1>
-            <input type="button" value="Show All Users" id="usersButton">
+            <input class="button is-centered is-primary" type="button" value="Show All Users" id="usersButton">
             <p id="allUsers">{}</p>
-
+        </div>
             <br>
 
+        <div class="box has-text-centered">
             <h1>Delete User</h1>
             <form id="delete">
                 <label for="pass">Confirm Password:</label> 
-                <input type="password" id="pass" name="pass" value="">
-
-                <input type="submit" value="Delete Account">
+                <input class="input is-primary is-small my-2" type="password" id="pass" name="pass" value="">
+                <input class="button is-danger" type="submit" value="Delete Account">
             </form>
-
+        </div>
             <br>
-
+    <!-- Michael Section part 2 end -->
+</div>
+        
             <h1>Show Profile</h1> 
             <form id = "showData">
                 <input type="submit" value="Show Profile">
