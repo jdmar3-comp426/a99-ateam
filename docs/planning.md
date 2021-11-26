@@ -23,6 +23,7 @@ Inital Roles:
     - change the font
     - add bulma framework
 - form for creating/updating users
+- need to display high scorers from database
 
 ## BACK_END: Sam, Kang
 - need to make database with usernames, passwords, email, etc
