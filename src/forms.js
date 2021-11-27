@@ -3,6 +3,30 @@ window.addEventListener("load", function () {
     var thisUser = null;
     var loggedIn;
 
+    // Hide and show elements based on login status
+    function hideElements(){
+        document.getElementById("loggedInUser").classList.add("hide-on-logout");
+        document.getElementById("scorebox").classList.add("hide-on-logout");
+        document.getElementById("scoreboard").classList.add("hide-on-logout");
+        document.getElementById("game").classList.add("hide-on-logout");
+        document.getElementById("signupdiv").classList.remove("hide-on-logout");
+        document.getElementById("loginmessage").classList.remove("hide-on-logout");
+        document.getElementById("credentials").classList.remove("hide-on-logout");
+    }
+    function showElements(){
+        document.getElementById("loggedInUser").classList.remove("hide-on-logout");
+        document.getElementById("scorebox").classList.remove("hide-on-logout");
+        document.getElementById("scoreboard").classList.remove("hide-on-logout");
+        document.getElementById("game").classList.remove("hide-on-logout");
+        document.getElementById("signupdiv").classList.add("hide-on-logout");
+        document.getElementById("loginmessage").classList.add("hide-on-logout");
+        document.getElementById("credentials").classList.add("hide-on-logout");
+    }
+
+    // Remove this line to show elements at start before login during testing
+    hideElements();
+    
+
     // New User Creation
     function sendData( form ) {
         const sendRequest = new XMLHttpRequest();
@@ -83,27 +107,27 @@ window.addEventListener("load", function () {
 
 
     // Get List of Users
-    function getUsers( form ) {
-        const sendRequest = new XMLHttpRequest();
-        sendRequest.addEventListener("error", function(event){
-            alert('Accessing users unsuccessful! Please try again.');
-        });
+    // function getUsers( form ) {
+    //     const sendRequest = new XMLHttpRequest();
+    //     sendRequest.addEventListener("error", function(event){
+    //         alert('Accessing users unsuccessful! Please try again.');
+    //     });
 
-        sendRequest.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                // alert(sendRequest.responseText);
-                document.getElementById("allUsers").innerHTML = sendRequest.responseText;
-            }
-        }
-        sendRequest.open("GET", "http://localhost:5000/app/users");
-        sendRequest.send();        
-    };
+    //     sendRequest.onreadystatechange = function() {
+    //         if (this.readyState == 4 && this.status == 200) {
+    //             // alert(sendRequest.responseText);
+    //             document.getElementById("allUsers").innerHTML = sendRequest.responseText;
+    //         }
+    //     }
+    //     sendRequest.open("GET", "http://localhost:5000/app/users");
+    //     sendRequest.send();        
+    // };
 
-    const allUsers = document.getElementById("usersButton");
-    allUsers.addEventListener("click", function(event){
-        event.preventDefault();
-        getUsers(this)
-    });
+    // const allUsers = document.getElementById("usersButton");
+    // allUsers.addEventListener("click", function(event){
+    //     event.preventDefault();
+    //     getUsers(this)
+    // });
 
 
     // Login
@@ -118,11 +142,13 @@ window.addEventListener("load", function () {
             if (this.readyState == 4 && this.status == 200) {
                 thisUser = JSON.parse(sendRequest.response);
                 if(loggedIn){
-                    alert("Logging Out");
                     thisUser = null;
                     loggedIn = false;
                     document.getElementById("login").value = "Login";
                     document.getElementById("greeting").innerHTML = thisUser;
+                    // document.getElementById("loggedInUser").classList.add("hide-on-logout");
+                    hideElements()
+                    alert("Logging Out");
                 } else {
                     if(thisUser.name == null | thisUser.name == ""){
                         document.getElementById("greeting").innerHTML = "Welcome to Whack-a-Devil, " + thisUser.user;
@@ -131,6 +157,9 @@ window.addEventListener("load", function () {
                     };
                     document.getElementById("login").value = "Logout";
                     loggedIn = true;
+                    // document.getElementById("loggedInUser").style.display = "block";
+                    // document.getElementById("loggedInUser").classList.remove("hide-on-logout");
+                    showElements();
                     alert("Login successful!")
                 }
             }
@@ -144,6 +173,8 @@ window.addEventListener("load", function () {
         event.preventDefault();
         if(loggedIn){
             alert("Logging Out");
+            // document.getElementById("loggedInUser").classList.add("hide-on-logout");
+            hideElements()
             thisUser = null;
             loggedIn = false;
             document.getElementById("login").value = "Login";

@@ -19,3 +19,8 @@
     background-image: url(../images/blue_devil.png);
     background-size: cover;
 }
+
+.hide-on-logout {
+    /* visibility: hidden; */
+    display: none;
+}
