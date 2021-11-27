@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="custom_style.css">
         <title>Whack a mole</title>
         <link rel="stylesheet" href="src/style.css">
-        <script src="src/forms.js"></script>
+        <script type = 'module' src="src/forms.js"></script>
     </head>
     <body>
         <div class = "title is-3">
@@ -19,7 +19,12 @@
 
             <h2 style = "color:rgb(56, 173, 124);">Seconds left:</h2>
             <h2 id="seconds-left">60</h2>
-
+        </div>
+        <div class = "box content has-text-info-dark is-size-8 is-family-code ">
+            <h1></h1> 
+            <form id = "showScore">
+                <input class = "button is-warning" type="button" value="Refresh High Score">
+            </form>
             <!-- added this section to display highest score -->
             <h2 style="color: rgb(56, 173, 124);">Highest Score:</h2> 
             <h2 id="highest_score">0</h2>
@@ -88,7 +93,7 @@
             <br>
         <div class="box has-text-centered">
             <h1>Users</h1>
-            <input class="button is-centered is-primary" type="button" value="Show All Users" id="usersButton">
+            <input class="button is-warning" type="button" value="Show All Users" id="usersButton">
             <p id="allUsers">{}</p>
         </div>
             <br>

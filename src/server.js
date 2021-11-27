@@ -5,6 +5,7 @@ var app = express();
 // Require database SCRIPT file
 var db = require("./database.js");
 
+var scoreboard = require("./score_database.js")
 // Require md5 MODULE
 var md5 = require("md5");
 
@@ -40,16 +41,32 @@ app.post("/app/new/user", (req, res, next) => {
 		pass: req.body.pass ? md5(req.body.pass) : null,
 		name: req.body.name, 
 		year: req.body.year,
-		score: '0'
 	}
-	const stmt = db.prepare('INSERT INTO userinfo (user, pass, email, name, year, score) VALUES (?, ?, ?, ?, ?, ?)');
-	const info = stmt.run(data.user, data.pass, data.email, data.name, data.year, data.score);
+	const stmt = db.prepare('INSERT INTO userinfo (user, pass, email, name, year) VALUES (?, ?, ?, ?, ?)');
+	const info = stmt.run(data.user, data.pass, data.email, data.name, data.year);
 	res.status(201).json({"message":info.changes+" record created: ID "+info.lastInsertRowid+" (201)"});
 })
 
+// CREATE a new score (HTTP method POST) at endpoint /app/new/score
+app.post("/app/new/sore", (req, res, next) => {
+	var data = {
+		user: req.body.user,
+		name: req.body.name, 
+		score: req.body.score
+	}
+	const stmt = scoreboard.prepare('INSERT INTO scoreboard (user, name, score) VALUES (?, ?, ?)');
+	const info = stmt.run(data.user, data.name, data.score);
+	res.status(201).json({"message":info.changes+" score record created: ID "+info.lastInsertRowid+" (201)"});
+})
 // READ a list of all users (HTTP method GET) at endpoint /app/users/
 app.get("/app/users", (req, res) => {	
 	const stmt = db.prepare("SELECT * FROM userinfo").all();
+	res.status(200).json(stmt);
+});
+
+// READ a list of one user that has the highest score (HTTP method GET) at endpoint /app/user/highest
+app.get("/app/user/highest", (req, res) => {	
+	const stmt = scoreboard.prepare("SELECT name, score FROM scoreboard WHERE score = (SELECT MAX(score) FROM scoreboard);").get();
 	res.status(200).json(stmt);
 });
 

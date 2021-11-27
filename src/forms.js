@@ -167,4 +167,45 @@ window.addEventListener("load", function () {
             alert("You must log in to see profile!")
         }
     });
-});
+
+    // Update score after each time and display the highest score 
+    function updateScore( form ) {
+        const sendRequest = new XMLHttpRequest();
+        var updateInfo = new URLSearchParams(new FormData( form ));
+        updateInfo.append('score', score);
+        sendRequest.addEventListener("error", function(event){
+            alert('Changes were unsuccessful! Please try again.');
+        });
+        sendRequest.addEventListener("load", function(event){
+            // alert('Your score was changed!');
+        });
+        sendRequest.open("PATCH", "http://localhost:5000/app/new/score");
+        sendRequest.send( updateInfo );
+    }
+    const update_Score = document.getElementById("showScore");
+    update_Score.addEventListener("click", function(event){
+        event.preventDefault();
+        updateScore(this);
+    });
+
+    // retrieve the highest score from database
+    function getHighest( form ) {
+        const sendRequest = new XMLHttpRequest();
+        sendRequest.addEventListener("error", function(event){
+            alert('updating score unsuccessful! Please try again.');
+        });
+
+        sendRequest.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                // alert(sendRequest.responseText);
+                document.getElementById("showScore").innerHTML = sendRequest.responseText;
+            }
+        }
+        sendRequest.open("GET", "http://localhost:5000/app/user/highest");
+        sendRequest.send(); 
+    }
+
+ 
+
+    
+});    
