@@ -168,7 +168,7 @@ window.addEventListener("load", function () {
         }
     });
 
-    // Update score after each time and display the highest score 
+    // Update score after each time 
     function updateScore( form ) {
         const sendRequest = new XMLHttpRequest();
         var updateInfo = new URLSearchParams(new FormData( form ));
@@ -177,22 +177,17 @@ window.addEventListener("load", function () {
             alert('Changes were unsuccessful! Please try again.');
         });
         sendRequest.addEventListener("load", function(event){
-            // alert('Your score was changed!');
+            // alert('Your score was added!');
         });
         sendRequest.open("PATCH", "http://localhost:5000/app/new/score");
         sendRequest.send( updateInfo );
     }
-    const update_Score = document.getElementById("showScore");
-    update_Score.addEventListener("click", function(event){
-        event.preventDefault();
-        updateScore(this);
-    });
 
     // retrieve the highest score from database
     function getHighest( form ) {
         const sendRequest = new XMLHttpRequest();
         sendRequest.addEventListener("error", function(event){
-            alert('updating score unsuccessful! Please try again.');
+            alert('retrieving score unsuccessful! Please try again.');
         });
 
         sendRequest.onreadystatechange = function() {
@@ -204,8 +199,12 @@ window.addEventListener("load", function () {
         sendRequest.open("GET", "http://localhost:5000/app/user/highest");
         sendRequest.send(); 
     }
+// when click "show highest score" button, do updatescore and gethighest
+    const getScore = document.getElementById("highestScore");
+    getScore.addEventListener("click", function(event){
+        event.preventDefault();
+        updateScore(this)
+        getHighest(this)
+    });
 
- 
-
-    
 });    

@@ -15,8 +15,12 @@ if (row === undefined) {
 // Set a const that will contain your SQL commands to initialize the database.
 // Include constraint that user must be unique
     const sqlInit = `
-        CREATE TABLE scoreboard ( id INTEGER PRIMARY KEY, user TEXT, name TEXT, score TEXT);
-		INSERT INTO scoreboard (user, name, score) VALUES ('admin','Sam Anthony', '0');
+        CREATE TABLE scoreboard ( id INTEGER PRIMARY KEY, user TEXT, name TEXT, score INTEGER);
+        INSERT INTO scoreboard (user, name, score) VALUES ('test3','Test Three', 10);
+        INSERT INTO scoreboard (user, name, score) VALUES ('admin','Sam Anthony', 0);
+        INSERT INTO scoreboard (user, name, score) VALUES ('test1','Test One', 5);
+        INSERT INTO scoreboard (user, name, score) VALUES ('test2','Test Two', 15);
+        INSERT INTO scoreboard (user, name, score) VALUES ('test2','Test Four', 25);
     `;
 // Execute SQL commands that we just wrote above.
     scoreboard.exec(sqlInit);
