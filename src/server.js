@@ -39,10 +39,11 @@ app.post("/app/new/user", (req, res, next) => {
 		email: req.body.email,
 		pass: req.body.pass ? md5(req.body.pass) : null,
 		name: req.body.name, 
-		year: req.body.year
+		year: req.body.year,
+		score: '0'
 	}
-	const stmt = db.prepare('INSERT INTO userinfo (user, pass, email, name, year) VALUES (?, ?, ?, ?, ?)');
-	const info = stmt.run(data.user, data.pass, data.email, data.name, data.year);
+	const stmt = db.prepare('INSERT INTO userinfo (user, pass, email, name, year, score) VALUES (?, ?, ?, ?, ?, ?)');
+	const info = stmt.run(data.user, data.pass, data.email, data.name, data.year, data.score);
 	res.status(201).json({"message":info.changes+" record created: ID "+info.lastInsertRowid+" (201)"});
 })
 
@@ -97,7 +98,6 @@ app.post("/app/exists/user", (req, res) => {
 	const stmt = db.prepare("SELECT * FROM userinfo WHERE user = ?").get(data.user);
 	res.status(200).json(stmt);
 });
-
 
 // Default response for any other request
 app.use(function(req, res){
