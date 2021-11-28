@@ -5,94 +5,99 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="node_modules/bulma/css/bulma.css">
         <link rel="stylesheet" href="custom_style.css">
-        <title>Whack a mole</title>
+        <title>Whack-a-Devil</title>
         <link rel="stylesheet" href="src/style.css">
         <script type = 'module' src="src/forms.js"></script>
     </head>
     <body>
         <div class = "title is-3">
-        <h1 style="color: rgb(0, 102, 255);">Whack a mole!</h1>
+        <h1 style="color: rgb(0, 102, 255);">Whack-a-Devil!</h1>
         </div>
-        <div class = "box content has-text-info-dark is-size-8 is-family-code ">
+        <div class = "box content has-text-info-dark is-size-8 is-family-code " id="scorebox">
             <h2 style="color: rgb(56, 173, 124);">Your score:</h2>
             <h2 id="score">0</h2>
 
             <h2 style = "color:rgb(56, 173, 124);">Seconds left:</h2>
             <h2 id="seconds-left">60</h2>
         </div>
-        <div class = "has-text-info-dark is-size-8 is-family-code ">
+            <!-- added this section to display highest score -->        
+            <div class = "has-text-info-dark is-size-8 is-family-code ">
             <form id = "highestScore">
                 <input class = "button is-warning" type="button" value="Show Highest Score">
                 <p id = "showScore">{}</p>
             </form>
-            <!-- added this section to display highest score -->
+
 
         </div>
-        <div class="ml-6">
-        <div class="grid ml-6">
-            <div class="square blue_devil" id="1"></div>
-            <div class="square" id="2"></div>
-            <div class="square" id="3"></div>
-            <div class="square" id="4"></div>
-            <div class="square" id="5"></div>
-            <div class="square" id="6"></div>
-            <div class="square" id="7"></div>
-            <div class="square" id="8"></div>
-            <div class="square" id="9"></div>
+        <div class="ml-6" id="game">
+            <div class="grid ml-6">
+                <div class="square blue_devil" id="1"></div>
+                <div class="square" id="2"></div>
+                <div class="square" id="3"></div>
+                <div class="square" id="4"></div>
+                <div class="square" id="5"></div>
+                <div class="square" id="6"></div>
+                <div class="square" id="7"></div>
+                <div class="square" id="8"></div>
+                <div class="square" id="9"></div>
+            </div>
         </div>
-    </div>
         <!-- Michael Section -->
     <div class = "box margin mt-6 mx-4">
         <div class="content has-text-info-dark is-size-4 is-family-code">
-            <h1>Login</h1>
+            <h2 id="greeting"></h2>
+            <h1 id="loginmessage">Login</h1>
             <form id="loginForm">
-                <label for="user">Username:</label>
-                <input class="input is-small" type="user" id="user" name="user" value="">
-                <label for="pass">Password:</label> 
-                <input class= "input is-small" type="password" id="pass" name="pass" value="">
+                <div id="credentials">
+                    <label for="user">Username:</label>
+                    <input class="input is-small" type="user" id="user" name="user" value="">
+                    <label for="pass">Password:</label> 
+                    <input class= "input is-small" type="password" id="pass" name="pass" value="">
+                </div>
                 <input class="button is-info" type="submit" value="Login" id="login">
             </form>
             
             <p id="myData"></p>
-            <h2 id="greeting"></h2>
-            <h1>Sign Up For an Account</h1>
-            <form id="signup">
-                <div class ="field">
-                <label for="user">Username:</label> 
-                <input class="input is-primary is-small" id="user" name="user" value="" placeholder="DookSux23">
-                </div>
+            <div id="signupdiv">
+                <h1>Sign Up For an Account</h1>
+                <form id="signup">
+                    <div class ="field">
+                    <label for="user">Username:</label> 
+                    <input class="input is-primary is-small" id="user" name="user" value="" placeholder="DookSux23">
+                    </div>
 
-                <div class ="field">
-                <label for="email">Email Address:</label>
-                <input class="input is-primary is-small" id="email" name="email" placeholder="someaddress@live.unc.edu">
-                </div>
+                    <div class ="field">
+                    <label for="email">Email Address:</label>
+                    <input class="input is-primary is-small" id="email" name="email" placeholder="someaddress@live.unc.edu">
+                    </div>
 
-                <div class = "field">
-                <label for="pass">Password:</label> 
-                <input class="input is-primary is-small" type="password" id="pass" name="pass" value="">
-                </div>
-                <div class = "field">
-                <label for="name">Name:</label> 
-                <input class="input is-primary is-small" id="name" name="name" placeholder="Rameses">
-                </div>
-                <div class = "field">
-                <label for="year">UNC Year:</label> 
-                <input class="input is-primary is-small" id="year" name="year" placeholder="2023">
-                </div>
-                <input class="button is-info" type="submit" value="Submit">
-            </form>
+                    <div class = "field">
+                    <label for="pass">Password:</label> 
+                    <input class="input is-primary is-small" type="password" id="pass" name="pass" value="">
+                    </div>
+                    <div class = "field">
+                    <label for="name">Name:</label> 
+                    <input class="input is-primary is-small" id="name" name="name" placeholder="Rameses">
+                    </div>
+                    <div class = "field">
+                    <label for="year">UNC Year:</label> 
+                    <input class="input is-primary is-small" id="year" name="year" placeholder="2023">
+                    </div>
+                    <input class="button is-info" type="submit" value="Submit">
+                </form>
+            </div>
         </div>
     </div>
 
     <!-- Michael Section part 2-->
-    <div class="content has-text-info-dark is-size-4 is-family-code">
+    <div class="content has-text-info-dark is-size-4 is-family-code" id="loggedInUser">
             <br>
-        <div class="box has-text-centered">
+        <!-- <div class="box has-text-centered">
             <h1>Users</h1>
             <input class="button is-warning" type="button" value="Show All Users" id="usersButton">
             <p id="allUsers">{}</p>
         </div>
-            <br>
+            <br> -->
 
         <div class="box has-text-centered">
             <h1>Delete User</h1>
