@@ -41,7 +41,7 @@ app.post("/app/new/user", (req, res, next) => {
 		email: req.body.email,
 		pass: req.body.pass ? md5(req.body.pass) : null,
 		name: req.body.name, 
-		year: req.body.year,
+		year: req.body.year
 	}
 	const stmt = db.prepare('INSERT INTO userinfo (user, pass, email, name, year) VALUES (?, ?, ?, ?, ?)');
 	const info = stmt.run(data.user, data.pass, data.email, data.name, data.year);
@@ -53,7 +53,7 @@ app.post("/app/new/score", (req, res) => {
 	var data = {
 		user: req.body.user,
 		name: req.body.name, 
-		score: req.body.score,
+		score: req.body.score
 	}
 	const stmt = scoreboard.prepare('INSERT INTO scoreboard (user, name, score) VALUES (?, ?, ?)');
 	const info = stmt.run(data.user, data.name, data.score);

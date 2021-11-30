@@ -216,10 +216,11 @@ window.addEventListener("load", function () {
 
     // when click "save your score" button, do saveScore()
     const score_val = document.getElementById("score");
-    score_val.addEventListener("click", function(event){
+    const score_button = document.getElementById("saveScore");
+    score_button.addEventListener("click", function(event){
         event.preventDefault();
         if (loggedIn){
-            score_val(this, saveScore.value); 
+            saveScore(this, score_val.value); 
         }  
     });
 
