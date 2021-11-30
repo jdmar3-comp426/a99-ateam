@@ -22,7 +22,7 @@ window.addEventListener("load", function () {
     }
 
     // Remove this line to show elements at start before login during testing
-    hideElements();
+    //hideElements();
     
 
     // New User Creation
@@ -197,8 +197,8 @@ window.addEventListener("load", function () {
         }
     });
 
-    // create a score profile after each time  ***not working
-    function updateScore( form, score ) {
+    // create a score profile after each time  ******not working
+    function saveScore( form, score ) {
         const sendRequest = new XMLHttpRequest();
         var updateInfo = new URLSearchParams(new FormData( form ));
         updateInfo.append('user', thisUser.user);
@@ -213,6 +213,15 @@ window.addEventListener("load", function () {
         sendRequest.open("POST", "http://localhost:5000/app/new/score");
         sendRequest.send( updateInfo );
     }
+
+    // when click "save your score" button, do saveScore()
+    const score_val = document.getElementById("score");
+    score_val.addEventListener("click", function(event){
+        event.preventDefault();
+        if (loggedIn){
+            score_val(this, saveScore.value); 
+        }  
+    });
 
 
     // retrieve the highest score from database
@@ -231,14 +240,10 @@ window.addEventListener("load", function () {
         sendRequest.open("GET", "http://localhost:5000/app/user/highest");
         sendRequest.send(); 
     }
-// when click "show highest score" button, do updatescore and gethighest
+// when click "show highest score" button, do getHighest()
     const getScore = document.getElementById("highestScore");
-    const createScore = document.getElementById("score");
     getScore.addEventListener("click", function(event){
         event.preventDefault();
-        if (loggedIn){
-            updateScore(this, createScore.value); 
-        }  
         getHighest(this)        
     });
 

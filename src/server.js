@@ -48,7 +48,7 @@ app.post("/app/new/user", (req, res, next) => {
 	res.status(201).json({"message":info.changes+" record created: ID "+info.lastInsertRowid+" (201)"});
 })
 
-// CREATE a new score (HTTP method POST) at endpoint /app/new/score
+// CREATE a new score (HTTP method POST) at endpoint /app/new/score               ******not working
 app.post("/app/new/score", (req, res) => {
 	var data = {
 		user: req.body.user,
