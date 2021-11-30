@@ -22,7 +22,7 @@ window.addEventListener("load", function () {
     }
 
     // Remove this line to show elements at start before login during testing
-    //hideElements();
+    hideElements();
     
 
     // New User Creation
@@ -220,7 +220,7 @@ window.addEventListener("load", function () {
     score_button.addEventListener("click", function(event){
         event.preventDefault();
         if (loggedIn){
-            saveScore(this, score_val.value); 
+            saveScore(this, score_val.innerHTML); 
         }  
     });
 
