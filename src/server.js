@@ -2,10 +2,11 @@
 var express = require("express");
 var app = express();
 
-// Require database SCRIPT file
+// Require database SCRIPT files
 var db = require("./database.js");
 
 var scoreboard = require("./score_database.js");
+
 // Require md5 MODULE
 var md5 = require("md5");
 
@@ -48,7 +49,7 @@ app.post("/app/new/user", (req, res, next) => {
 })
 
 // CREATE a new score (HTTP method POST) at endpoint /app/new/score
-app.post("/app/new/sore", (req, res, next) => {
+app.post("/app/new/score", (req, res) => {
 	var data = {
 		user: req.body.user,
 		name: req.body.name, 

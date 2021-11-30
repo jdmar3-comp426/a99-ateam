@@ -210,15 +210,10 @@ window.addEventListener("load", function () {
         sendRequest.addEventListener("load", function(event){
             // alert('Your score was added!');
         });
-        sendRequest.open("PATCH", "http://localhost:5000/app/new/score");
+        sendRequest.open("POST", "http://localhost:5000/app/new/score");
         sendRequest.send( updateInfo );
     }
 
-    const createScore = document.getElementById("score");
-    createScore.addEventListener("click", function(event){
-        event.preventDefault();
-        updateScore(this, createScore.value);
-    });
 
     // retrieve the highest score from database
     function getHighest( form ) {
@@ -238,9 +233,13 @@ window.addEventListener("load", function () {
     }
 // when click "show highest score" button, do updatescore and gethighest
     const getScore = document.getElementById("highestScore");
+    const createScore = document.getElementById("score");
     getScore.addEventListener("click", function(event){
         event.preventDefault();
-        getHighest(this)
+        if (loggedIn){
+            updateScore(this, createScore.value); 
+        }  
+        getHighest(this)        
     });
 
 });    
