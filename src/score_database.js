@@ -18,9 +18,10 @@ if (row === undefined) {
         CREATE TABLE scoreboard ( id INTEGER PRIMARY KEY, user TEXT, name TEXT, score INTEGER);
         INSERT INTO scoreboard (user, name, score) VALUES ('test3','Test Three', 10);
         INSERT INTO scoreboard (user, name, score) VALUES ('admin','Sam Anthony', 0);
-        INSERT INTO scoreboard (user, name, score) VALUES ('test1','Test One', 5);
-        INSERT INTO scoreboard (user, name, score) VALUES ('test2','Test Two', 15);
-        INSERT INTO scoreboard (user, name, score) VALUES ('test2','Test Four', 25);
+        INSERT INTO scoreboard (user, name, score) VALUES ('test2','Test TWO', 5);
+        INSERT INTO scoreboard (user, name, score) VALUES ('test4','Test FOUR', 15);
+        INSERT INTO scoreboard (user, name, score) VALUES ('test5','Test FIVE', 7);
+        INSERT INTO scoreboard (user, name, score) VALUES ('test6','Test SIX', 20);
     `;
 // Execute SQL commands that we just wrote above.
     scoreboard.exec(sqlInit);

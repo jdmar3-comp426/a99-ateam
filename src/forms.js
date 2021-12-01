@@ -221,7 +221,9 @@ window.addEventListener("load", function () {
         event.preventDefault();
         if (loggedIn){
             saveScore(this, score_val.innerHTML); 
-        }  
+        } else {
+            alert('Log in to save score!');
+        }
     });
 
 

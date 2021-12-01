@@ -76,10 +76,11 @@ app.get("/app/scores", (req, res) => {
 
 // READ a list of one user that has the highest score (HTTP method GET) at endpoint /app/user/highest
 app.get("/app/user/highest", (req, res) => {	
-	const stmt = scoreboard.prepare("SELECT name, score FROM scoreboard WHERE score = (SELECT MAX(score) FROM scoreboard);").get();
+	const stmt = scoreboard.prepare("SELECT name, score FROM scoreboard ORDER BY score DESC LIMIT 5;").get();
 	res.status(200).json(stmt);
 });
 
+//SELECT id, num1 + num2 AS total FROM table1 ORDER BY num1 + num2 DESC LIMIT 5
 
 // UPDATE a single user (HTTP method PATCH) at endpoint /app/updating/user/
 app.patch("/app/updating/user", (req, res) => {
