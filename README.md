@@ -34,7 +34,7 @@ Login with registered username and password
 
 Once loggged in, you will be directed to the game itself. 
 The game is a modified version of "Whack a Mole" with a 60 sec countdown.
-You receive one score by clicking on the devil img
+You receive one score by clicking on the devil img.
 Your goal is to score as high as possible
 
 **Features**
