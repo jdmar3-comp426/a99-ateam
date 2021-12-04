@@ -46,8 +46,7 @@ HOW IT WORKS
 The front end development and styling of the interface was done using Bulma. We added divs and classes to index.html so that we could create separation in the "Create An Account", "Change Username", and "Delete Account" parts using boxes. We also added styling through using different fonts, colors, and spacing to make our interface more appealing to the user. The Whack-A-Devil gameboard was also altered using Bulma to have Carolina Blue background instead of it's original formatting in black and white.
 
 **Gameplay**
-
-
+You are given 60 seconds to hit the Duke devil as many times as you can. At the end of the 60 seconds, you score is outputted
 
 **Back end**
 Both the back-end databases were created using Sqlite-3, md5, and express, as done in assignments 4 and 5. CRUD API endpoints were created for each of the user and score functions defined above. 
