@@ -51,10 +51,10 @@ You are given 60 seconds to hit the Duke devil as many times as you can. At the 
 **Back end**
 Both the back-end databases were created using Sqlite-3, md5, and express, as done in assignments 4 and 5. CRUD API endpoints were created for each of the user and score functions defined above. 
 
-- User database
+- User database:
 Using input forms and buttons, users made HTTP requests to the database to access, update, and delete their info. The database, user.db, has 5 parameters: username, password, email, name, and year in school. Of these, username, password, and email are required for each new account. Additionally, changes had to be made in the database to require that each username was unique, so there could be no duplicate users. The API endpoints had functions to create a new user, log in, view user info, change username, delete account, and log out of account. The back end user database files also had scripts to manage which sections of the website were shown based on the log in status. Further documentation of this database and its associated functions can be found within the src folder's files of database.js, forms.js, and server.js, or in the back-end-userdatabase.md file in the docs folder.
 
-- Score database
+- Score database:
 The scoreboard database is created along with the user database. The score database consists of two fields: Name and Score. 
 When the "Get Highest Score" button is clicked, the "getHighest()" function in forms.js sends a request to the server, accessing the http://localhost:5000/app/user/highest endpoint, pulling the highest score and the name of the player from the scoreboard database.
 When the "Save Score" button is clicked, the "saveScore()" function in forms.js sends a request to the server, accessing the http://localhost:5000/app/new/score endpoint, saving your current score and your name into the scoreboard database
