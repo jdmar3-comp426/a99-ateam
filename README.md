@@ -1,6 +1,6 @@
 # Whack-a-Devil
 
-demo: link to be added ****
+demo: https://youtu.be/NAAmeuHo6Sc
 
 **Dependencies**:
 - better-sqlite3
@@ -16,7 +16,7 @@ find details on
 - back end user databases
 - changes
 - planning 
-in docs
+in **docs**
 
 **The Game**
 The game is a modified version of "Whack a Mole"
