@@ -1,0 +1,26 @@
+.square {
+    width: 200px;
+    height: 200px;
+    border-style: solid;
+    border-color:black;
+}
+
+.grid {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center;
+    width: 618px;
+    height: 618px;
+    margin: 0px;
+    background-color: rgb(187, 225, 255);
+}
+.blue_devil {
+    background-image: url(../images/blue_devil.png);
+    background-size: cover;
+}
+
+.hide-on-logout {
+    /* visibility: hidden; */
+    display: none;
+}

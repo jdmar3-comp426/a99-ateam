@@ -1,54 +1,64 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-f059dc9a6f8d3a56e377f745f24479a46679e63a5d9fe6f495e02850cd0d8118.svg)](https://classroom.github.com/online_ide?assignment_repo_id=6362114&assignment_repo_type=AssignmentRepo)
-# a99 Finally
+# Whack-a-Devil
 
-COMP426 final project template repository. All your code and documentation goes here. Change this text to be a brief description of your final project. Put the name in the header above. You will change everything below to be the main technical documentation, as outlined below.
+demo: https://youtu.be/NAAmeuHo6Sc
 
-## First steps
+**Dependencies**:
+- better-sqlite3
+- browser-sync
+- bulma
+- concurrently
+- cors
+- express
+- md5
+- requirejs
 
-Other steps that you will need to take after you have cloned this repository:
+**How to Run**: npm run start
 
-1. Choose and update the LICENSE file accordingly. 
-2. Edit this README.md file and use it as the main location of your technical documentation with links out to information contained under `/docs/`.
-3. Create a `/docs/` directory for more elaborate documentation of your API, planning notes, etc.
-4. Make sure that all of your team members have access to the repository as administrators.
-5. Create a project under the **Projects** tab. Use this to manage your planning. Create a To-do list, etc. Explore the tools available and user them to manage your project.
-7. Assign team roles and include a listing of those roles in this README.md file or in another file under `/docs/`.
-8. Then put your entire development workflow in this repository.
-9. Use **Pull requests** to propose changes and incorporate them into your code from various team members. 
-10. Use **Issues** to identify and track bugs and also to communicate about various aspects of the project.
+**Find details in [docs](/docs) on**:
+- back end user databases
+- changes
+- planning
 
-## Team mangement
+## The Game
+The game is a modified version of "Whack a Mole"
 
-Plan to meet with your team ASAP.
-Talk through identifying roles within your team.
+**Sign up**
 
-Try to figure out what each of you are good at/enjoy doing and try to work out roles that incorporate that.
+Create your profile in the sign up section if you don't already have an account
 
-Some basic roles you will want to consider:
+**Login**
 
-1. A review manager - someone to review pull requests and merge or reject them and manage the related discussions
-2. A plan manager - someone to keep an eye on the overall plan and keep the project tab/to-do list up to date
-3. A documentation manager - someone to keep the documentation in order and identify what is missing and needs to be documented
-4. Roles for team members to take charge or different parts of the project. Possible roles:
-    1. Front end lead
-    2. Back end lead
-    3. Databse lead
-    4. Design lead
-    5. Etc.
+Login with registered username and password
 
-You will notice that there are more roles than people in your group.
-That is because you will all be doing a hybrid job of managing a thing while working on other things.
+**Gameplay**
 
-## Check in with instructional staff
+Once loggged in, you will be directed to the game itself. 
+The game is a modified version of "Whack a Mole" with a 60 sec countdown.
+You receive one score by clicking on the devil img.
+Your goal is to score as high as possible
 
-Once all the groups are together, we'll assign each group to an LA to check in with as you progress through the project.
+**Features**
+- Show High Score: when you click this button, the highest score shows up with the name of the player
+- Save Score: when clicked, saves your current score
+- Change Username: when clicked, changes your username and logs you out
+- Delete Account: when clicked, deletes your account permanently
+- View Profile: view profile details, including: User, User Name, Email, and Year
 
-We will post that so that your team can schedule a time for an initial check-in with your assigned LA. It would be a good idea also to add your LA to your repository.
+## HOW IT WORKS
 
-## Assignment instructions
+#### Front End
+The front end development and styling of the interface was done using Bulma. We added divs and classes to index.html so that we could create separation in the "Create An Account", "Change Username", and "Delete Account" parts using boxes. We also added styling through using different fonts, colors, and spacing to make our interface more appealing to the user. The Whack-A-Devil gameboard was also altered using Bulma to have Carolina Blue background instead of it's original formatting in black and white.
 
-And that is about all you need to get started.
+#### Gameplay
+You are given 60 seconds to hit the Duke devil as many times as you can. At the end of the 60 seconds, you score is outputted
 
-All the rest of the assignment instructions are available at: https://comp426.johndmart.in/assignments/99
+#### Back end
+Both the back-end databases were created using Sqlite-3, md5, and express, as done in assignments 4 and 5. CRUD API endpoints were created for each of the user and score functions defined above. 
 
-Good skill, and have fun with this!
+##### User database:
+Using input forms and buttons, users made HTTP requests to the database to access, update, and delete their info. The database, user.db, has 5 parameters: username, password, email, name, and year in school. Of these, username, password, and email are required for each new account. Additionally, changes had to be made in the database to require that each username was unique, so there could be no duplicate users. The API endpoints had functions to create a new user, log in, view user info, change username, delete account, and log out of account. The back end user database files also had scripts to manage which sections of the website were shown based on the log in status. Further documentation of this database and its associated functions can be found within the src folder's files of database.js, forms.js, and server.js, or in the back-end-userdatabase.md file in the docs folder.
+
+##### Score database:
+The scoreboard database is created along with the user database. The score database consists of two fields: Name and Score. 
+When the "Get Highest Score" button is clicked, the "getHighest()" function in forms.js sends a request to the server, accessing the http://localhost:5000/app/user/highest endpoint, pulling the highest score and the name of the player from the scoreboard database.
+When the "Save Score" button is clicked, the "saveScore()" function in forms.js sends a request to the server, accessing the http://localhost:5000/app/new/score endpoint, saving your current score and your name into the scoreboard database
